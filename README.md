@@ -22,7 +22,7 @@ https://github.com/davidbuzatto/JSGE
 
 ---
 
-## How to Run
+<h1 align = "center">How to Run</h1>
 
 ### Requirements
 
@@ -40,7 +40,7 @@ Open the project in your preferred IDE and execute the main class.
 
 ---
 
-## What I Learned
+### What I Learned
 
 Through this project, I practiced:
 
@@ -52,8 +52,6 @@ Through this project, I practiced:
 
 ---
 
-## 👨‍💻 Author
+*Made by Maria Clara Lisboa*
 
-Made by Maria Clara Lisboa
-
-- GitHub: https://github.com/MariaClaraLisboa
+*GitHub:* https://github.com/MariaClaraLisboa

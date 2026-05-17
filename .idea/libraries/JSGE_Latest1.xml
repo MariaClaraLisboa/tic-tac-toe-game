@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="JSGE-Latest1">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/JSGE-Latest" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/lib/JSGE-Latest" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/lib/JSGE-Latest" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/JSGE-Latest" recursive="false" type="SOURCES" />
+  </library>
+</component>

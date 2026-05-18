@@ -16,11 +16,20 @@ It was created as a practice project to improve my Object-Oriented Programming (
 
 ---
 
+<h3>FEATURES :video_game:</h3>
+
+- Player vs Player gameplay
+- Win detection
+- Draw detection
+- Restart system (Press R)
+- Visual feedback for winner
+
+---
+
 <h3>TECHNOLOGIES USED :gear:</h3>
 
 - Java
 - JSGE (JSimple Game Engine)
-- Object-Oriented Programming (OOP)
 
 ---
 
@@ -32,7 +41,7 @@ Repository:
 https://github.com/davidbuzatto/JSGE
 
 ---
-<h1 align = "center">HOW TO RUN :question:</h1>
+<h2 align = "center">HOW TO RUN :question:</h1>
 <br>
 <h3>REQUIREMENTS :pushpin:</h3>
 
@@ -49,15 +58,24 @@ Open the project in your preferred IDE and execute the main class.
 
 ---
 
-<h1 align = "center">WHAT I LEARNED :question:</h1> 
+<h2 align = "center">WHAT I LEARNED :question:</h1> 
 <br>
 <p>Through this project, I practiced:</p>
 
+- Object-Oriented Programming (OOP)
 - Classes and objects
 - Encapsulation
 - Game loop concepts
 - Event handling
 - Basic game development structure
+
+---
+
+<h2 align = "center">🌸 GAME SCREENSHOT 🌸</h1>
+<br>
+<p align = "center"> 
+  <img width="622" height="623" alt="image" src="https://github.com/user-attachments/assets/98e3701f-d693-44d3-ab7a-956c23882d9d" />
+</p>
 
 ---
 

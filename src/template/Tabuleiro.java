@@ -8,10 +8,10 @@ public class Tabuleiro {
 
     private static final Color COR = new Color(245, 132, 190);
 
+    private int rodadas = 0;
     private int[] celulas = new int[]{
             0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    private int rodadas = 0;
 
     public void desenharTabuleiro(EngineFrame e) {
         //coloca um for aqui depois talvez, mas desencessário sinceramente

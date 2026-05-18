@@ -9,7 +9,6 @@ public class EstadoDoJogo {
     private Tabuleiro tabuleiro;
     private int primeiraCelulaVencedora;
     private int ultimaCelulaVencedora;
-    private CentroCelulas centroCelulas;
 
     public EstadoDoJogo(Tabuleiro tabuleiro) {
         this.tabuleiro = tabuleiro;
@@ -83,7 +82,7 @@ public class EstadoDoJogo {
     }
 
     public void desenharLinhaDaVitoria(EngineFrame e){
-        centroCelulas = new CentroCelulas(1, e);
+        CentroCelulas centroCelulas = new CentroCelulas(1, e);
 
         e.drawLine(
                 centroCelulas.getVetorPosicao(primeiraCelulaVencedora,1),

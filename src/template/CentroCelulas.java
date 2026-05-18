@@ -45,23 +45,19 @@ public class CentroCelulas {
 
     }
 
-    public Vector2 getPosicao0(double tamanhoDoTexto) {
+    public Vector2 getPosicao0(double tamanhoDoTexto) { //acho que da pra deixar esse metodo privado depois, usando so o de cima
             posicao0 = new Vector2(meioDaCelula - (tamanhoDoTexto / 2), meioDaCelula - tamanhoFonte / 3.4);
             return posicao0;
     }
 
     public Vector2 getPosicao1(double tamanhoDoTexto) {
-
             posicao1 = new Vector2((meioDaCelula + tamanhoCelula) - (tamanhoDoTexto / 2), meioDaCelula - tamanhoFonte / 3.4);
             return posicao1;
-
     }
 
     public Vector2 getPosicao2(double tamanhoDoTexto) {
-
             posicao2 = new Vector2((meioDaCelula + tamanhoCelula * 2) - (tamanhoDoTexto / 2), meioDaCelula - tamanhoFonte / 3.4);
             return posicao2;
-
     }
 
     public Vector2 getPosicao3(double tamanhoDoTexto) {

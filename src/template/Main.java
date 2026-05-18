@@ -13,19 +13,19 @@ public class Main extends EngineFrame {
     static final Color COR_O = new Color(255, 255, 255);
     static final int TAMANHO_FONTE = 60;
 
-
     Tabuleiro tabuleiro;
+    EstadoDoJogo estadoDoJogo;
     Peca pecaX;
     Peca pecaO;
     PosicaoPeca posicaoPecaX;
     PosicaoPeca posicaoPecaO;
-    EstadoDoJogo estadoDoJogo;
 
     String textoTelaFinal;
 
     double larguraDoTextoFinal;
     double larguraDoTextoX;
     double larguraDoTextoO;
+
     boolean xVenceu;
     boolean oVenceu;
     boolean fimDeJogo;
@@ -49,13 +49,13 @@ public class Main extends EngineFrame {
     public void create() {
 
         tabuleiro = new Tabuleiro();
+        estadoDoJogo = new EstadoDoJogo(tabuleiro);
         pecaX = new Peca(1);
         pecaO = new Peca(2);
-        estadoDoJogo = new EstadoDoJogo(tabuleiro);
 
-        fimDeJogo = false;
         xVenceu = false;
         oVenceu = false;
+        fimDeJogo = false;
 
     }
 
@@ -79,7 +79,7 @@ public class Main extends EngineFrame {
                         fimDeJogo = true;
                     }
                 }
-            } else if (tabuleiro.getRodadas() % 2 != 0) {          //Coloca peca 'O', incrementa a rodada e vê se 'O' venceu
+            } else {    //Coloca peca 'O', incrementa a rodada e vê se 'O' venceu
                 if (isMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
                     posicaoPecaO = new PosicaoPeca(
                             getMouseX(),
@@ -119,15 +119,16 @@ public class Main extends EngineFrame {
             if (tabuleiro.getCelulas()[i] == 1) {
                 larguraDoTextoX = measureText("⨉", TAMANHO_PECA);
                 pecaX.desenharPeca(this, i, "⨉", larguraDoTextoX, TAMANHO_PECA, COR_X);
+
             } else if (tabuleiro.getCelulas()[i] == 2) {
                 larguraDoTextoO = measureText("○", TAMANHO_PECA);
                 pecaO.desenharPeca(this, i, "○", larguraDoTextoO, TAMANHO_PECA, COR_O);
-            }
 
+            }
         }
 
         if (xVenceu && fimDeJogo || oVenceu && fimDeJogo) {
-            if(xVenceu){
+            if (xVenceu) {
                 textoTelaFinal = "X - WINS!";
             } else {
                 textoTelaFinal = "○ - WINS!";

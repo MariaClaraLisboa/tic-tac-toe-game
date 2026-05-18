@@ -87,7 +87,7 @@ public class EstadoDoJogo {
         e.drawLine(
                 centroCelulas.getVetorPosicao(primeiraCelulaVencedora,1),
                 centroCelulas.getVetorPosicao(ultimaCelulaVencedora, 1),
-                Color.BLACK
+                Color.WHITE
                 );
     }
 }

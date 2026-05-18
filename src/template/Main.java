@@ -8,10 +8,11 @@ import java.awt.*;
 public class Main extends EngineFrame {
 
     static final int TAMANHO_PECA = 150;
-    static final Color COR_DO_FUNDO = new Color(255, 235, 242);
+    static final int TAMANHO_FONTE = 60;
+    static final Color COR_DO_FUNDO = Color.BLACK;
+    static final Color COR_TELA_FINAL = new Color(255, 235, 242);
     static final Color COR_X = new Color(252, 197, 228);
     static final Color COR_O = new Color(255, 255, 255);
-    static final int TAMANHO_FONTE = 60;
 
     Tabuleiro tabuleiro;
     EstadoDoJogo estadoDoJogo;
@@ -129,25 +130,25 @@ public class Main extends EngineFrame {
 
         if (xVenceu && fimDeJogo || oVenceu && fimDeJogo) {
             if (xVenceu) {
-                textoTelaFinal = "X - WINS!";
+                textoTelaFinal = "X WINS!";
             } else {
-                textoTelaFinal = "○ - WINS!";
+                textoTelaFinal = "○ WINS!";
             }
 
             estadoDoJogo.desenharLinhaDaVitoria(this);
 
             larguraDoTextoFinal = measureText(textoTelaFinal, TAMANHO_FONTE);
 
-            fillRectangle(0, getScreenHeight() / 2.0 - TAMANHO_FONTE, getScreenWidth(), TAMANHO_FONTE * 2, ColorUtils.fade(BLACK, 0.3));
-            drawText(textoTelaFinal, getScreenWidth() / 2.0 - larguraDoTextoFinal / 2, getScreenHeight() / 2.0 - TAMANHO_FONTE / 3.0, TAMANHO_FONTE, COR_DO_FUNDO);
+            fillRectangle(0, getScreenHeight() / 2.0 - TAMANHO_FONTE, getScreenWidth(), TAMANHO_FONTE * 2, ColorUtils.fade(PINK, 0.5));
+            drawText(textoTelaFinal, getScreenWidth() / 2.0 - larguraDoTextoFinal / 2, getScreenHeight() / 2.0 - TAMANHO_FONTE / 3.0, TAMANHO_FONTE, BLACK);
 
         } else if (fimDeJogo) {
 
             textoTelaFinal = "GAME OVER!";
             larguraDoTextoFinal = measureText(textoTelaFinal, TAMANHO_FONTE);
 
-            fillRectangle(0, getScreenHeight() / 2.0 - TAMANHO_FONTE, getScreenWidth(), TAMANHO_FONTE * 2, ColorUtils.fade(BLACK, 0.3));
-            drawText(textoTelaFinal, getScreenWidth() / 2.0 - larguraDoTextoFinal / 2, getScreenHeight() / 2.0 - TAMANHO_FONTE / 3.0, TAMANHO_FONTE, COR_DO_FUNDO);
+            fillRectangle(0, getScreenHeight() / 2.0 - TAMANHO_FONTE, getScreenWidth(), TAMANHO_FONTE * 2, ColorUtils.fade(PINK, 0.3));
+            drawText(textoTelaFinal, getScreenWidth() / 2.0 - larguraDoTextoFinal / 2, getScreenHeight() / 2.0 - TAMANHO_FONTE / 3.0, TAMANHO_FONTE, BLACK);
 
         }
     }

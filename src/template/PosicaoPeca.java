@@ -1,13 +1,11 @@
 package template;
 
-import br.com.davidbuzatto.jsge.math.Vector2;
-
 public class PosicaoPeca {
 
-    private int x;
-    private int y;
     private Peca peca;
     private Tabuleiro tabuleiro;
+    private int x;
+    private int y;
 
     public PosicaoPeca(int x, int y, Tabuleiro tabuleiro, Peca peca) {
         this.x = x;

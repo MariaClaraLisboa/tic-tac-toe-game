@@ -4,7 +4,7 @@ import br.com.davidbuzatto.jsge.core.engine.EngineFrame;
 import br.com.davidbuzatto.jsge.math.Vector2;
 
 public class CentroCelulas {
-
+    //Depois transforma tudo isso aqui em 1 array só
     private Vector2 posicao0;
     private Vector2 posicao1;
     private Vector2 posicao2;
@@ -20,24 +20,20 @@ public class CentroCelulas {
 
     private double tamanhoCelula;
     private double meioDaCelula;
-    private double tamanhoDoTextoX;
-    private double tamanhoDoTextoO;
 
     public CentroCelulas(int tamanhoFonte, EngineFrame e) {
 
         this.tamanhoTela = e.getScreenWidth();
         this.tamanhoFonte = tamanhoFonte;
 
-        tamanhoCelula = tamanhoTela / 3;
+        tamanhoCelula = tamanhoTela / 3.0;
         meioDaCelula = tamanhoCelula / 2;
-        tamanhoDoTextoX = e.measureText("⨉", tamanhoFonte);
-        tamanhoDoTextoO = e.measureText("○", tamanhoFonte);
 
     }
 
     public Vector2 getVetorPosicao(int celula, double tamanhoDoTexto) {
 
-        if (celula == 0) { return getPosicao0(tamanhoDoTexto); }
+        if (celula == 0) { return getPosicao0(tamanhoDoTexto); } //coloca um for aqui depois
         else if (celula == 1) { return getPosicao1(tamanhoDoTexto); }
         else if (celula == 2) { return getPosicao2(tamanhoDoTexto); }
         else if (celula == 3) { return getPosicao3(tamanhoDoTexto); }

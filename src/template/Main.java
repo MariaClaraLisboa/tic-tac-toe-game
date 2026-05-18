@@ -7,7 +7,12 @@ import java.awt.*;
 
 public class Main extends EngineFrame {
 
-    static final Color corDoFundo = new Color(255, 235, 242);
+    static final int TAMANHO_PECA = 150;
+    static final Color COR_DO_FUNDO = new Color(255, 235, 242);
+    static final Color COR_X = new Color(252, 197, 228);
+    static final Color COR_O = new Color(255, 255, 255);
+    static final int TAMANHO_FONTE = 60;
+
 
     Tabuleiro tabuleiro;
     Peca pecaX;
@@ -16,6 +21,11 @@ public class Main extends EngineFrame {
     PosicaoPeca posicaoPecaO;
     EstadoDoJogo estadoDoJogo;
 
+    String textoTelaFinal;
+
+    double larguraDoTextoFinal;
+    double larguraDoTextoX;
+    double larguraDoTextoO;
     boolean xVenceu;
     boolean oVenceu;
     boolean fimDeJogo;
@@ -45,7 +55,7 @@ public class Main extends EngineFrame {
 
         fimDeJogo = false;
         xVenceu = false;
-        oVenceu = false ;
+        oVenceu = false;
 
     }
 
@@ -56,24 +66,28 @@ public class Main extends EngineFrame {
 
             if (tabuleiro.getRodadas() % 2 == 0) {           //Coloca peca 'X', incrementa a rodada e vê se 'X' venceu
                 if (isMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-                    posicaoPecaX = new PosicaoPeca(getMouseX(), getMouseY(), tabuleiro, pecaX);
-                    posicaoPecaX.setPosicao(getScreenHeight());
-
-                    System.out.println("\nRodada:" + tabuleiro.getRodadas());
+                    posicaoPecaX = new PosicaoPeca(
+                            getMouseX(),
+                            getMouseY(),
+                            tabuleiro,
+                            pecaX
+                    );
+                    posicaoPecaX.setPosicao(getScreenWidth());
 
                     if (estadoDoJogo.verificarVitoriaDoX()) {
                         xVenceu = true;
                         fimDeJogo = true;
                     }
                 }
-            }
-
-            else if (tabuleiro.getRodadas() % 2 != 0) {          //Coloca peca 'O', incrementa a rodada e vê se 'O' venceu
+            } else if (tabuleiro.getRodadas() % 2 != 0) {          //Coloca peca 'O', incrementa a rodada e vê se 'O' venceu
                 if (isMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-                    posicaoPecaO = new PosicaoPeca(getMouseX(), getMouseY(), tabuleiro, pecaO);
-                    posicaoPecaO.setPosicao(getScreenHeight());
-
-                    System.out.println("\nRodada:" + tabuleiro.getRodadas());
+                    posicaoPecaO = new PosicaoPeca(
+                            getMouseX(),
+                            getMouseY(),
+                            tabuleiro,
+                            pecaO
+                    );
+                    posicaoPecaO.setPosicao(getScreenWidth());
 
                     if (estadoDoJogo.verificarVitoriaDoO()) {
                         oVenceu = true;
@@ -81,66 +95,58 @@ public class Main extends EngineFrame {
                     }
                 }
             }
-
         }
 
         if (tabuleiro.getRodadas() > 8) {   // Verifica se houve empate
             fimDeJogo = true;
         }
 
-        if(tabuleiro.updateTabuleiro(this, delta)){
+        if (tabuleiro.updateTabuleiro(this, delta)) { // Quando reinicia reseta tudo
             fimDeJogo = false;
+            xVenceu = false;
+            oVenceu = false;
         }
     }
 
     @Override
     public void draw() {
 
-        clearBackground(corDoFundo);
+        clearBackground(COR_DO_FUNDO);
         tabuleiro.desenharTabuleiro(this);
 
         for (int i = 0; i < 9; i++) {
 
             if (tabuleiro.getCelulas()[i] == 1) {
-                pecaX.desenharPeca(this, i);
+                larguraDoTextoX = measureText("⨉", TAMANHO_PECA);
+                pecaX.desenharPeca(this, i, "⨉", larguraDoTextoX, TAMANHO_PECA, COR_X);
             } else if (tabuleiro.getCelulas()[i] == 2) {
-                pecaO.desenharPeca(this, i);
+                larguraDoTextoO = measureText("○", TAMANHO_PECA);
+                pecaO.desenharPeca(this, i, "○", larguraDoTextoO, TAMANHO_PECA, COR_O);
             }
 
         }
 
-        if (xVenceu && fimDeJogo) {
-
-            String texto = "X - WINS!";
-            int tamanhoFonte = 60;
-
-            int tamanhovertical = measureText(texto, tamanhoFonte);
-
-            estadoDoJogo.desenharLinhaDaVitoria(this);
-
-            fillRectangle(0, getScreenHeight() / 2 - tamanhoFonte, getScreenWidth(), tamanhoFonte * 2, ColorUtils.fade(BLACK, 0.3));
-            drawText(texto, getScreenWidth() / 2 - tamanhovertical / 2, getScreenHeight() / 2 - tamanhoFonte / 3, tamanhoFonte, corDoFundo);
-
-        } else if (oVenceu && fimDeJogo) {
-
-            String texto = "○ - WINS!";
-            int tamanhoFonte = 60;
-
-            int tamanhovertical = measureText(texto, tamanhoFonte);
+        if (xVenceu && fimDeJogo || oVenceu && fimDeJogo) {
+            if(xVenceu){
+                textoTelaFinal = "X - WINS!";
+            } else {
+                textoTelaFinal = "○ - WINS!";
+            }
 
             estadoDoJogo.desenharLinhaDaVitoria(this);
 
-            fillRectangle(0, getScreenHeight() / 2 - tamanhoFonte, getScreenWidth(), tamanhoFonte * 2, ColorUtils.fade(BLACK, 0.3));
-            drawText(texto, getScreenWidth() / 2 - tamanhovertical / 2, getScreenHeight() / 2 - tamanhoFonte / 3, tamanhoFonte, corDoFundo);
+            larguraDoTextoFinal = measureText(textoTelaFinal, TAMANHO_FONTE);
+
+            fillRectangle(0, getScreenHeight() / 2.0 - TAMANHO_FONTE, getScreenWidth(), TAMANHO_FONTE * 2, ColorUtils.fade(BLACK, 0.3));
+            drawText(textoTelaFinal, getScreenWidth() / 2.0 - larguraDoTextoFinal / 2, getScreenHeight() / 2.0 - TAMANHO_FONTE / 3.0, TAMANHO_FONTE, COR_DO_FUNDO);
 
         } else if (fimDeJogo) {
 
-            String texto = "GAME OVER!";
-            int tamanhoFonte = 60;
-            int tamanhovertical = measureText(texto, tamanhoFonte);
+            textoTelaFinal = "GAME OVER!";
+            larguraDoTextoFinal = measureText(textoTelaFinal, TAMANHO_FONTE);
 
-            fillRectangle(0, getScreenHeight() / 2 - tamanhoFonte, getScreenWidth(), tamanhoFonte * 2, ColorUtils.fade(BLACK, 0.3));
-            drawText(texto, getScreenWidth() / 2 - tamanhovertical / 2, getScreenHeight() / 2 - tamanhoFonte / 3, tamanhoFonte, corDoFundo);
+            fillRectangle(0, getScreenHeight() / 2.0 - TAMANHO_FONTE, getScreenWidth(), TAMANHO_FONTE * 2, ColorUtils.fade(BLACK, 0.3));
+            drawText(textoTelaFinal, getScreenWidth() / 2.0 - larguraDoTextoFinal / 2, getScreenHeight() / 2.0 - TAMANHO_FONTE / 3.0, TAMANHO_FONTE, COR_DO_FUNDO);
 
         }
     }

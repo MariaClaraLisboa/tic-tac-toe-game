@@ -63,8 +63,6 @@ Open the project in your preferred IDE and execute the main class.
 <p>Through this project, I practiced:</p>
 
 - Object-Oriented Programming (OOP)
-- Classes and objects
-- Encapsulation
 - Game loop concepts
 - Event handling
 - Basic game development structure

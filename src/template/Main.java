@@ -8,7 +8,6 @@ import java.awt.*;
 public class Main extends EngineFrame {
 
     static final Color corDoFundo = new Color(255, 235, 242);
-    static final int tamanhoTela = 500;
 
     Tabuleiro tabuleiro;
     Peca pecaX;
@@ -23,8 +22,8 @@ public class Main extends EngineFrame {
 
     public Main() {
         super(
-                tamanhoTela,                 // largura                      / width
-                tamanhoTela,                 // altura                       / height
+                500,                 // largura                      / width
+                500,                 // altura                       / height
                 "Tic Tac Toe",      // título                       / title
                 60,                  // quadros por segundo desejado / target FPS
                 true,                // suavização                   / antialiasing
@@ -58,7 +57,7 @@ public class Main extends EngineFrame {
             if (tabuleiro.getRodadas() % 2 == 0) {           //Coloca peca 'X', incrementa a rodada e vê se 'X' venceu
                 if (isMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
                     posicaoPecaX = new PosicaoPeca(getMouseX(), getMouseY(), tabuleiro, pecaX);
-                    posicaoPecaX.setPosicao(tamanhoTela);
+                    posicaoPecaX.setPosicao(getScreenHeight());
 
                     System.out.println("\nRodada:" + tabuleiro.getRodadas());
 
@@ -72,7 +71,7 @@ public class Main extends EngineFrame {
             else if (tabuleiro.getRodadas() % 2 != 0) {          //Coloca peca 'O', incrementa a rodada e vê se 'O' venceu
                 if (isMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
                     posicaoPecaO = new PosicaoPeca(getMouseX(), getMouseY(), tabuleiro, pecaO);
-                    posicaoPecaO.setPosicao(tamanhoTela);
+                    posicaoPecaO.setPosicao(getScreenHeight());
 
                     System.out.println("\nRodada:" + tabuleiro.getRodadas());
 

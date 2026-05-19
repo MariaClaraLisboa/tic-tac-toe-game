@@ -135,7 +135,7 @@ public class Main extends EngineFrame {
                 textoTelaFinal = "○ WINS!";
             }
 
-            estadoDoJogo.desenharLinhaDaVitoria(this);
+            estadoDoJogo.desenharLinhaDaVitoria(this, getScreenWidth()/3.0);
 
             larguraDoTextoFinal = measureText(textoTelaFinal, TAMANHO_FONTE);
 

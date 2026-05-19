@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21f9d7b7-9493-4555-ba7d-f75c8a4ee193" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/template/Symbol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/template/EstadoDoJogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/template/EstadoDoJogo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/template/CentroCelulas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/template/CellPositions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/template/EstadoDoJogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/template/GameState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/template/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/template/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/template/Peca.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/template/PosicaoPeca.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/template/Tabuleiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/template/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +67,7 @@
       <option name="VM_PARAMETERS" value="-Djava.library.path=lib/jinput-2.0.10-natives-all --add-opens java.base/java.lang=ALL-UNNAMED" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="template.*" />
+          <option name="PATTERN" value="template.Board" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

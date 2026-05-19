@@ -10,7 +10,7 @@ public class Main extends EngineFrame {
     static final int TAMANHO_PECA = 150;
     static final int TAMANHO_FONTE = 60;
     static final Color COR_DO_FUNDO = Color.BLACK;
-    static final Color COR_TELA_FINAL = new Color(255, 235, 242);
+    static final Color COR_TELA_FINAL = PINK;
     static final Color COR_X = new Color(252, 197, 228);
     static final Color COR_O = new Color(255, 255, 255);
 
@@ -139,7 +139,7 @@ public class Main extends EngineFrame {
 
             larguraDoTextoFinal = measureText(textoTelaFinal, TAMANHO_FONTE);
 
-            fillRectangle(0, getScreenHeight() / 2.0 - TAMANHO_FONTE, getScreenWidth(), TAMANHO_FONTE * 2, ColorUtils.fade(PINK, 0.5));
+            fillRectangle(0, getScreenHeight() / 2.0 - TAMANHO_FONTE, getScreenWidth(), TAMANHO_FONTE * 2, ColorUtils.fade(COR_TELA_FINAL, 0.5));
             drawText(textoTelaFinal, getScreenWidth() / 2.0 - larguraDoTextoFinal / 2, getScreenHeight() / 2.0 - TAMANHO_FONTE / 3.0, TAMANHO_FONTE, BLACK);
 
         } else if (fimDeJogo) {
@@ -147,7 +147,7 @@ public class Main extends EngineFrame {
             textoTelaFinal = "GAME OVER!";
             larguraDoTextoFinal = measureText(textoTelaFinal, TAMANHO_FONTE);
 
-            fillRectangle(0, getScreenHeight() / 2.0 - TAMANHO_FONTE, getScreenWidth(), TAMANHO_FONTE * 2, ColorUtils.fade(PINK, 0.3));
+            fillRectangle(0, getScreenHeight() / 2.0 - TAMANHO_FONTE, getScreenWidth(), TAMANHO_FONTE * 2, ColorUtils.fade(COR_TELA_FINAL, 0.3));
             drawText(textoTelaFinal, getScreenWidth() / 2.0 - larguraDoTextoFinal / 2, getScreenHeight() / 2.0 - TAMANHO_FONTE / 3.0, TAMANHO_FONTE, BLACK);
 
         }

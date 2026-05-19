@@ -14,6 +14,7 @@ public class EstadoDoJogo {
         this.tabuleiro = tabuleiro;
     }
     // Depois colocar só um pra verificar vitória, nao precisa de dois
+
     public boolean verificarVitoriaDoX() {
 
         for (int i = 0; i < 9; i += 3) {

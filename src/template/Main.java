@@ -75,7 +75,7 @@ public class Main extends EngineFrame {
                     );
                     posicaoPecaX.setPosicao(getScreenWidth());
 
-                    if (estadoDoJogo.verificarVitoriaDoX()) {
+                    if (estadoDoJogo.verificarVitoria(1)) {
                         xVenceu = true;
                         fimDeJogo = true;
                     }
@@ -90,7 +90,7 @@ public class Main extends EngineFrame {
                     );
                     posicaoPecaO.setPosicao(getScreenWidth());
 
-                    if (estadoDoJogo.verificarVitoriaDoO()) {
+                    if (estadoDoJogo.verificarVitoria(2)) {
                         oVenceu = true;
                         fimDeJogo = true;
                     }

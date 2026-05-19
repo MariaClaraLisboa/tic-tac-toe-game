@@ -27,7 +27,7 @@ public class CentroCelulas {
         return getPosicao(celula, tamanhoDoTexto);
     }
 
-    public Vector2 getPosicao(int indice, double tamanhoDoTexto) { //acho que da pra deixar esse metodo privado depois, usando so o de cima
+    private Vector2 getPosicao(int indice, double tamanhoDoTexto) {
 
         posicoes[0] = new Vector2(meioDaCelula - (tamanhoDoTexto / 2), meioDaCelula - tamanhoFonte / 3.4);
         posicoes[1] = new Vector2((meioDaCelula + tamanhoCelula) - (tamanhoDoTexto / 2), meioDaCelula - tamanhoFonte / 3.4);

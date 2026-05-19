@@ -21,7 +21,7 @@ public class Peca {
 
         centro = new CentroCelulas(tamanhoPeca, e);
 
-        e.drawText(texto, centro.getPosicao(celula, tamanhoDoTexto), tamanhoPeca, cor);
+        e.drawText(texto, centro.getVetorPosicao(celula, tamanhoDoTexto), tamanhoPeca, cor);
 
     }
 }

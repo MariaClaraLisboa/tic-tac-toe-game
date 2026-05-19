@@ -144,11 +144,11 @@ public class Main extends EngineFrame {
 
         } else if (fimDeJogo) {
 
-            textoTelaFinal = "GAME OVER!";
+            textoTelaFinal = "DRAW!";
             larguraDoTextoFinal = measureText(textoTelaFinal, TAMANHO_FONTE);
 
-            fillRectangle(0, getScreenHeight() / 2.0 - TAMANHO_FONTE, getScreenWidth(), TAMANHO_FONTE * 2, ColorUtils.fade(COR_TELA_FINAL, 0.3));
-            drawText(textoTelaFinal, getScreenWidth() / 2.0 - larguraDoTextoFinal / 2, getScreenHeight() / 2.0 - TAMANHO_FONTE / 3.0, TAMANHO_FONTE, BLACK);
+            fillRectangle(0, getScreenHeight() / 2.0 - TAMANHO_FONTE, getScreenWidth(), TAMANHO_FONTE * 2, ColorUtils.fade(COR_TELA_FINAL, 0.5));
+            drawText(textoTelaFinal, getScreenWidth() / 2.0 - larguraDoTextoFinal / 2, getScreenHeight() / 2.0 - TAMANHO_FONTE / 3.0, TAMANHO_FONTE, WHITE);
 
         }
     }

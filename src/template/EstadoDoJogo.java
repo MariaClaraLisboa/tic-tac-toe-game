@@ -57,12 +57,15 @@ public class EstadoDoJogo {
     public void desenharLinhaDaVitoria(EngineFrame e, double tamanhoCelula){
 
         CentroCelulas centroCelulas = new CentroCelulas(1, e);
+        Color corCelulaVencedora = new Color(247, 25, 142);
 
         for (int i = 0; i < 3; i++) {
+
             Vector2 pos = centroCelulas.getVetorPosicao(celulasVencedoras[i],1);
             double posX = pos.x;
             double posY = pos.y;
-            e.fillRectangle(posX - tamanhoCelula/2, posY - tamanhoCelula/2, tamanhoCelula, tamanhoCelula, ColorUtils.fade(new Color(247, 25, 142), 0.25));
+
+            e.fillRectangle(posX - tamanhoCelula/2, posY - tamanhoCelula/2, tamanhoCelula, tamanhoCelula, ColorUtils.fade(corCelulaVencedora, 0.25));
 
         }
     }

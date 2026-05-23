@@ -1,14 +1,12 @@
 package template;
 
 import br.com.davidbuzatto.jsge.core.engine.EngineFrame;
-import br.com.davidbuzatto.jsge.core.utils.ColorUtils;
 
 import java.awt.*;
 
 public class Main extends EngineFrame {
 
     static final Color BACKGROUND_COLOR = Color.BLACK;
-    static final Color FINAL_SCREEN_COLOR = new Color(245, 132, 190);
     static final Color X_COLOR = new Color(252, 197, 228);
     static final Color O_COLOR = new Color(255, 255, 255);
 
@@ -20,16 +18,15 @@ public class Main extends EngineFrame {
     GameState gameState;
     Symbol symbolX;
     Symbol symbolO;
-    String finalScreenText;
+    GamePanel gamePanelText;
 
-    double finalTextWidth;
     boolean xWon;
     boolean oWon;
     boolean gameOver;
 
     public Main() {
         super(
-                800,                 // largura                      / width
+                850,                 // largura                      / width
                 BOARD_SIZE,                 // altura                       / height
                 "Tic Tac Toe",      // título                       / title
                 60,                  // quadros por segundo desejado / target FPS
@@ -47,6 +44,7 @@ public class Main extends EngineFrame {
 
         board = new Board(BOARD_SIZE);
         gameState = new GameState(board);
+        gamePanelText = new GamePanel();
 
         xWon = false;
         oWon = false;
@@ -107,6 +105,8 @@ public class Main extends EngineFrame {
         clearBackground(BACKGROUND_COLOR);
         board.drawBoard(this);
 
+        drawRectangle(BOARD_SIZE + 15, BOARD_SIZE/3, BOARD_SIZE - (BOARD_SIZE/3) - 15, BOARD_SIZE - (BOARD_SIZE/3) - 15, PINK);
+
         for (int i = 0; i < 9; i++) {
 
             if (board.getCells()[i] == 1) {
@@ -119,27 +119,17 @@ public class Main extends EngineFrame {
         }
 
         if (xWon && gameOver || oWon && gameOver) {
-            if (xWon) {
-                finalScreenText = "X WINS!";
-            } else {
-                finalScreenText = "○ WINS!";
-            }
 
             gameState.drawWinnerCells(this);
 
-            finalTextWidth = measureText(finalScreenText, FONT_SIZE);
-
-            fillRectangle(0, BOARD_SIZE / 2.0 - FONT_SIZE, BOARD_SIZE, FONT_SIZE * 2, ColorUtils.fade(FINAL_SCREEN_COLOR, 0.9));
-            drawText(finalScreenText, BOARD_SIZE / 2.0 - finalTextWidth / 2, BOARD_SIZE / 2.0 - FONT_SIZE / 3.0, FONT_SIZE, WHITE);
+            if (xWon) {
+                gamePanelText.drawGameOver(this, "⨉ WON!", FONT_SIZE, BOARD_SIZE);
+            } else {
+                gamePanelText.drawGameOver(this, "○ WON!", FONT_SIZE, BOARD_SIZE);
+            }
 
         } else if (gameOver) {
-
-            finalScreenText = "DRAW!";
-            finalTextWidth = measureText(finalScreenText, FONT_SIZE);
-
-            fillRectangle(0, BOARD_SIZE / 2.0 - FONT_SIZE, BOARD_SIZE, FONT_SIZE * 2, ColorUtils.fade(FINAL_SCREEN_COLOR, 0.6));
-            drawText(finalScreenText, BOARD_SIZE / 2.0 - finalTextWidth / 2, BOARD_SIZE / 2.0 - FONT_SIZE / 3.0, FONT_SIZE, WHITE);
-
+            gamePanelText.drawGameOver(this, "Draw!", FONT_SIZE, BOARD_SIZE);
         }
     }
 

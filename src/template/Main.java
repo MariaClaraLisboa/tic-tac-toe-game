@@ -8,12 +8,13 @@ import java.awt.*;
 public class Main extends EngineFrame {
 
     static final Color BACKGROUND_COLOR = Color.BLACK;
-    static final Color FINAL_SCREEN_COLOR = new Color(255, 125, 192);
+    static final Color FINAL_SCREEN_COLOR = new Color(245, 132, 190);
     static final Color X_COLOR = new Color(252, 197, 228);
     static final Color O_COLOR = new Color(255, 255, 255);
 
     static final int SYMBOL_SIZE = 150;
     static final int FONT_SIZE = 60;
+    static final int BOARD_SIZE = 500;
 
     Board board;
     GameState gameState;
@@ -28,8 +29,8 @@ public class Main extends EngineFrame {
 
     public Main() {
         super(
-                500,                 // largura                      / width
-                500,                 // altura                       / height
+                800,                 // largura                      / width
+                BOARD_SIZE,                 // altura                       / height
                 "Tic Tac Toe",      // título                       / title
                 60,                  // quadros por segundo desejado / target FPS
                 true,                // suavização                   / antialiasing
@@ -44,7 +45,7 @@ public class Main extends EngineFrame {
     @Override
     public void create() {
 
-        board = new Board();
+        board = new Board(BOARD_SIZE);
         gameState = new GameState(board);
 
         xWon = false;
@@ -128,16 +129,16 @@ public class Main extends EngineFrame {
 
             finalTextWidth = measureText(finalScreenText, FONT_SIZE);
 
-            fillRectangle(0, getScreenHeight() / 2.0 - FONT_SIZE, getScreenWidth(), FONT_SIZE * 2, ColorUtils.fade(FINAL_SCREEN_COLOR, 0.6));
-            drawText(finalScreenText, getScreenWidth() / 2.0 - finalTextWidth / 2, getScreenHeight() / 2.0 - FONT_SIZE / 3.0, FONT_SIZE, BLACK);
+            fillRectangle(0, BOARD_SIZE / 2.0 - FONT_SIZE, BOARD_SIZE, FONT_SIZE * 2, ColorUtils.fade(FINAL_SCREEN_COLOR, 0.9));
+            drawText(finalScreenText, BOARD_SIZE / 2.0 - finalTextWidth / 2, BOARD_SIZE / 2.0 - FONT_SIZE / 3.0, FONT_SIZE, WHITE);
 
         } else if (gameOver) {
 
             finalScreenText = "DRAW!";
             finalTextWidth = measureText(finalScreenText, FONT_SIZE);
 
-            fillRectangle(0, getScreenHeight() / 2.0 - FONT_SIZE, getScreenWidth(), FONT_SIZE * 2, ColorUtils.fade(FINAL_SCREEN_COLOR, 0.6));
-            drawText(finalScreenText, getScreenWidth() / 2.0 - finalTextWidth / 2, getScreenHeight() / 2.0 - FONT_SIZE / 3.0, FONT_SIZE, WHITE);
+            fillRectangle(0, BOARD_SIZE / 2.0 - FONT_SIZE, BOARD_SIZE, FONT_SIZE * 2, ColorUtils.fade(FINAL_SCREEN_COLOR, 0.6));
+            drawText(finalScreenText, BOARD_SIZE / 2.0 - finalTextWidth / 2, BOARD_SIZE / 2.0 - FONT_SIZE / 3.0, FONT_SIZE, WHITE);
 
         }
     }

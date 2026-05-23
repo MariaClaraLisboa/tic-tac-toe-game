@@ -11,11 +11,11 @@ public class CellPositions {
     private double cellSize;
     private double cellCenter;
 
-    public CellPositions(int fontSize, EngineFrame e) {
+    public CellPositions( EngineFrame e, int fontSize, int boardSize) {
 
         this.fontSize = fontSize;
 
-        cellSize = e.getScreenWidth() / 3.0;
+        cellSize = boardSize / 3.0;
         cellCenter = cellSize / 2;
 
     }

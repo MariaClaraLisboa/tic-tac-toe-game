@@ -20,7 +20,7 @@ public class Symbol {
 
     public void setSymbolPosition(EngineFrame e, int player) {
 
-        int cellSize = e.getScreenWidth() / 3;
+        int cellSize = board.getBoardSize() / 3;
 
         if (x < cellSize) { // Defining first column
             if (y < cellSize && board.getCell(0) == 0) {    // Checking if cell is empty, if not, then will not be set
@@ -55,7 +55,7 @@ public class Symbol {
 
     public void drawSymbol(EngineFrame e, int cell, String symbolText, int symbolSize, Color color) {
 
-        cellPosition = new CellPositions(symbolSize, e);
+        cellPosition = new CellPositions(e, symbolSize, board.getBoardSize());
         double textSize = e.measureText(symbolText, symbolSize);;
 
         e.drawText(symbolText, cellPosition.getCellPositionVector(cell, textSize), symbolSize, color);

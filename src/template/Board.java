@@ -8,17 +8,22 @@ public class Board {
 
     private static final Color COLOR = new Color(245, 132, 190);
 
+    private int boardSize;
     private int rows = 0;
     private int[] cells = new int[]{
             0, 0, 0, 0, 0, 0, 0, 0, 0
     };
 
+    public Board (int boardSize){
+        this.boardSize = boardSize;
+    }
+
     public void drawBoard(EngineFrame e) {
 
-        e.drawLine(e.getScreenWidth() / 3.0, 0, e.getScreenWidth() / 3.0, e.getScreenHeight(), COLOR);
-        e.drawLine(e.getScreenWidth() - e.getScreenWidth() / 3.0, 0, e.getScreenWidth() - e.getScreenWidth() / 3.0, e.getScreenHeight(), COLOR);
-        e.drawLine(0, e.getScreenHeight() / 3.0, e.getScreenWidth(), e.getScreenHeight() / 3.0, COLOR);
-        e.drawLine(0, e.getScreenHeight() - e.getScreenHeight() / 3.0, e.getScreenWidth(), e.getScreenHeight() - e.getScreenHeight() / 3.0, COLOR);
+        e.drawLine(boardSize / 3.0, 0, boardSize / 3.0, boardSize, COLOR);
+        e.drawLine(boardSize - boardSize / 3.0, 0, boardSize - boardSize / 3.0, boardSize, COLOR);
+        e.drawLine(0, boardSize / 3.0, boardSize, boardSize / 3.0, COLOR);
+        e.drawLine(0, boardSize - boardSize / 3.0, boardSize, boardSize - boardSize / 3.0, COLOR);
 
     }
 
@@ -48,5 +53,9 @@ public class Board {
 
     public int getRows() {
         return rows;
+    }
+
+    public int getBoardSize() {
+        return boardSize;
     }
 }

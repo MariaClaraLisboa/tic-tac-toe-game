@@ -53,10 +53,10 @@ public class GameState {
 
     public void drawWinnerCells(EngineFrame e){
 
-        CellPositions cellPositions = new CellPositions(1, e);
+        CellPositions cellPositions = new CellPositions(e, 1, board.getBoardSize());
         Color winnerCellsColor = new Color(247, 25, 142);
 
-        double cellSize = e.getScreenWidth()/3.0;
+        double cellSize = board.getBoardSize()/3.0;
 
         for (int i = 0; i < 3; i++) {
 
